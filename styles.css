@@ -368,10 +368,10 @@ button { font: inherit; }
 
 /* ---------- mobile sticky donate ---------- */
 .sticky-donate { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--white); border-top: 2px solid var(--black); padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); align-items: center; justify-content: space-between; gap: 12px; }
-.sticky-donate .txt { display: flex; flex-direction: column; gap: 4px; min-width: 0; font-family: var(--sans); line-height: 1.1; }
+.sticky-donate .txt { flex: 1 1 auto; display: flex; flex-direction: column; gap: 4px; min-width: 0; font-family: var(--sans); line-height: 1.1; }
 .sticky-donate strong { font-weight: 800; font-size: 16px; color: var(--black); }
 .sticky-donate span { font-weight: 500; font-size: 13px; color: var(--ink-3); }
-.sticky-donate .btn { min-height: 50px; padding: 0 26px; font-size: 18px; box-shadow: none; }
+.sticky-donate .btn { flex: 0 0 auto; min-height: 50px; padding: 0 26px; font-size: 18px; box-shadow: none; }
 
 /* ---------- breakpoints ---------- */
 @media (max-width: 1023px) {
@@ -382,7 +382,13 @@ button { font: inherit; }
 @media (max-width: 699px) {
   .brand-sub { display: none; }
   .print figcaption { display: none; }
-  .btn-header { padding: 0 16px; }
+  .header-inner { height: 68px; gap: 10px; }
+  .brand { gap: 10px; min-width: 0; }
+  .brand img { width: 40px; height: 40px; }
+  .brand-name { font-size: 17px; }
+  .header-right { gap: 8px; flex: 0 0 auto; }
+  .btn-header { min-height: 44px; padding: 0 14px; font-size: 16px; gap: 8px; }
+  .menu-btn { width: 44px; height: 44px; }
   .story-more { display: none; }
   .story-more.open { display: flex; }
   .story-toggle { display: inline-flex; }
@@ -390,4 +396,11 @@ button { font: inherit; }
   .sticky-donate { display: flex; }
   .site-footer { padding-bottom: 76px; }
   .meter-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
+@media (max-width: 399px) {
+  /* the sticky bar carries the donate action, so free the header row */
+  .btn-header { display: none; }
+  .sticky-donate { padding-left: 12px; padding-right: 12px; gap: 10px; }
+  .sticky-donate strong { font-size: 15px; }
+  .sticky-donate .btn { padding: 0 18px; font-size: 17px; }
 }
